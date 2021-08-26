@@ -1,52 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/currencyservice.dart';
 
-class InputRedPage extends StatefulWidget {
+class InputWhitePage extends StatefulWidget {
   final origCurrency;
   final convCurrency;
 
-  InputRedPage({this.origCurrency, this.convCurrency});
+  InputWhitePage({this.origCurrency, this.convCurrency});
 
   @override
-  _InputRedPageState createState() => _InputRedPageState();
+  _InputWhitePageState createState() => _InputWhitePageState();
 }
 
-class _InputRedPageState extends State<InputRedPage> {
+class _InputWhitePageState extends State<InputWhitePage> {
   var currInput = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0D47A1),
       body: Column(
         children: <Widget>[
           SizedBox(height: 25.0),
           InkWell(
-            onTap: () {
-              setState(() {
-                currInput = 0;
-              });
-            },
-            child: Text(
-              'tap to delete',
-              style: TextStyle(
-                  color: Color(0xFF90CAF9),
-                  fontSize: 17.0,
-                  fontFamily: 'Quicksand',
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+              onTap: () {
+                setState(() {
+                  currInput = 0;
+                });
+              },
+              child: Text(
+                'tap to delete',
+                style: TextStyle(
+                    color: Color(0xFF90CAF9),
+                    fontSize: 17.0,
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.bold),
+              )),
           SizedBox(height: 10.0),
           Center(
-            child: Text(
-              currInput.toString(),
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 100.0,
-                  fontFamily: 'Quicksand',
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+              child: Text(
+                currInput.toString(),
+                style: TextStyle(
+                    color: Color(0xFF0D47A1),
+                    fontSize: 100.0,
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.bold),
+              )),
           SizedBox(height: 25.0),
           numberRow(1, 2, 3),
           SizedBox(height: 25.0),
@@ -65,26 +62,23 @@ class _InputRedPageState extends State<InputRedPage> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         InkWell(
-          onTap: () {
-            calculateNumber(number1);
-          },
-          child: Container(
-            height: 80.0,
-            width: 80.0,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFF0D47A1)),
-            child: Center(
-              child: Text(
-                number1.toString(),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-        ),
+            onTap: () {
+              calculateNumber(number1);
+            },
+            child: Container(
+                height: 80.0,
+                width: 80.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.0),
+                    color: Color(0xFF90CAF9)),
+                child: Center(
+                    child: Text(
+                      number1.toString(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold),
+                    )))),
         InkWell(
           onTap: () {
             calculateNumber(number2);
@@ -94,7 +88,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFF0D47A1)),
+                color: Color(0xFF90CAF9)),
             child: Center(
               child: Text(
                 number2.toString(),
@@ -115,7 +109,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFF0D47A1)),
+                color: Color(0xFF90CAF9)),
             child: Center(
               child: Text(
                 number3.toString(),
@@ -144,7 +138,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFF0D47A1)),
+                color: Color(0xFF90CAF9)),
             child: Center(
               child: Text(
                 '.',
@@ -165,7 +159,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFF0D47A1)),
+                color: Color(0xFF90CAF9)),
             child: Center(
               child: Text(
                 0.toString(),
@@ -180,17 +174,18 @@ class _InputRedPageState extends State<InputRedPage> {
         InkWell(
           onTap: () {
             CurrencyService().convertCurrency(
-                widget.origCurrency, widget.convCurrency, currInput, context);
+                widget.convCurrency, widget.origCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,
             width: 80.0,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40.0), color: Colors.white),
+                borderRadius: BorderRadius.circular(40.0),
+                color: Color(0xFF0D47A1)),
             child: Center(
                 child: Icon(
                   Icons.check,
-                  color: Color(0xFF0D47A1),
+                  color: Colors.white,
                   size: 25.0,
                 )),
           ),
